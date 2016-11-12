@@ -1,6 +1,8 @@
 #!/bin/bash
 
 set -e
+# Define ES_NET_HOST to last ip defined in eth0
+export ES_NET_HOST=$(routel|grep eth0|grep host|tail -1|awk '{print $1}')
 
 # Add elasticsearch as command if needed
 if [ "${1:0:1}" = '-' ]; then
