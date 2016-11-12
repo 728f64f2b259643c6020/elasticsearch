@@ -47,8 +47,8 @@ COPY config ./config
 
 VOLUME /usr/share/elasticsearch/data
 
-COPY docker-entrypoint.sh /
+COPY bootstrap.sh /usr/local/bin/bootstrap.sh
 
 EXPOSE 9200 9300
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["bootstrap.sh"]
 CMD ["elasticsearch"]
